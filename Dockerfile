@@ -23,7 +23,7 @@ RUN apk add --no-cache --virtual .build-deps \
 
 # Install prebuilt `mc` (must match CLI_VERSION assets on the release).
 # P0 default: muthur-command/cli. CI may pass build-args until that repo publishes mc_* for this version.
-ARG CLI_VERSION=5.0.0
+ARG CLI_VERSION=mc_2026.04.1
 ARG CLI_ORG=muthur-command
 ARG CLI_REPO=cli
 ARG TARGETARCH
