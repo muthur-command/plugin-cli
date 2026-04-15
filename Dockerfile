@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/base:3.23-2026.03.1
+ARG BUILD_FROM=ghcr.io/muthur-command/base:3.23
 FROM ${BUILD_FROM}
 
 # Set shell
@@ -21,8 +21,11 @@ RUN apk add --no-cache --virtual .build-deps \
     && apk del .build-deps \
     && rm -rf /usr/src/*
 
-# Install CLI
+# Install prebuilt `mc` (must match CLI_VERSION assets on the release).
+# P0 default: muthur-command/cli. CI may pass build-args until that repo publishes mc_* for this version.
 ARG CLI_VERSION=5.0.0
+ARG CLI_ORG=muthur-command
+ARG CLI_REPO=cli
 ARG TARGETARCH
 RUN \
     if [ -z "${TARGETARCH}" ]; then \
@@ -33,17 +36,17 @@ RUN \
             arm64) CLI_ARCH="aarch64" ;; \
             *) echo "Unsupported TARGETARCH: ${TARGETARCH}" && exit 1 ;; \
         esac \
-    && curl -Lfso /usr/bin/ha https://github.com/home-assistant/cli/releases/download/${CLI_VERSION}/ha_${CLI_ARCH} \
-    && chmod a+x /usr/bin/ha
+    && curl -Lfso /usr/bin/mc "https://github.com/${CLI_ORG}/${CLI_REPO}/releases/download/${CLI_VERSION}/mc_${CLI_ARCH}" \
+    && chmod a+x /usr/bin/mc
 
 COPY rootfs /
 WORKDIR /
 
 LABEL \
-    io.hass.type="cli" \
-    org.opencontainers.image.title="Home Assistant CLI Plugin" \
-    org.opencontainers.image.description="Home Assistant Supervisor plugin for CLI" \
-    org.opencontainers.image.authors="The Home Assistant Authors" \
-    org.opencontainers.image.url="https://www.home-assistant.io/" \
-    org.opencontainers.image.documentation="https://www.home-assistant.io/docs/" \
+    io.mcio.type="cli" \
+    org.opencontainers.image.title="MCOS CLI plugin" \
+    org.opencontainers.image.description="Supervisor-managed CLI plugin container for MCOS" \
+    org.opencontainers.image.authors="muthur-command (fork; upstream copyright in LICENSE)" \
+    org.opencontainers.image.url="https://github.com/muthur-command/plugin-cli" \
+    org.opencontainers.image.documentation="https://github.com/muthur-command/plugin-cli" \
     org.opencontainers.image.licenses="Apache License 2.0"

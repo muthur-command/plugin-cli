@@ -1,4 +1,6 @@
 template: |
+  **MCOS** CLI plugin (`ghcr.io/muthur-command/mcio-cli`, **`io.mcio.*`** labels). See **README.md**.
+
   ## What's Changed
 
   $CHANGES
