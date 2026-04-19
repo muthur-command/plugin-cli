@@ -43,7 +43,7 @@ jobs:
 
       - name: Get build matrix
         id: matrix
-        uses: muthur-command/builder/actions/prepare-multi-arch-matrix@mc_2026.04.0
+        uses: muthur-command/builder/actions/prepare-multi-arch-matrix@2026.04.2
         with:
           architectures: ${{ env.ARCHITECTURES }}
           image-name: ${{ env.IMAGE_NAME }}
@@ -67,7 +67,7 @@ jobs:
 
       - name: Build image
         id: build
-        uses: muthur-command/builder/actions/build-image@mc_2026.04.0
+        uses: muthur-command/builder/actions/build-image@2026.04.2
         with:
           arch: ${{ matrix.arch }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
@@ -79,7 +79,7 @@ jobs:
             latest
           push: ${{ needs.init.outputs.publish == 'true' }}
           version: ${{ needs.init.outputs.version }}
-          # Remove when muthur-command/cli publishes mc_* for CLI_VERSION in Dockerfile.
+          # Remove when muthur-command/cli publishes release assets for CLI_VERSION in Dockerfile.
           build-args: |
             CLI_ORG=muthur-command
             CLI_REPO=cli
@@ -94,7 +94,7 @@ jobs:
       packages: write
     steps:
       - name: Publish multi-arch manifest
-        uses: muthur-command/builder/actions/publish-multi-arch-manifest@mc_2026.04.0
+        uses: muthur-command/builder/actions/publish-multi-arch-manifest@2026.04.2
         with:
           architectures: ${{ env.ARCHITECTURES }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}

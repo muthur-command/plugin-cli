@@ -22,8 +22,8 @@ RUN apk add --no-cache --virtual .build-deps \
     && rm -rf /usr/src/*
 
 # Install prebuilt `mc` (must match CLI_VERSION assets on the release).
-# P0 default: muthur-command/cli. CI may pass build-args until that repo publishes mc_* for this version.
-ARG CLI_VERSION=mc_2026.04.1
+# P0 default: muthur-command/cli. CI may pass build-args until that repo publishes assets for CLI_VERSION.
+ARG CLI_VERSION=2026.04.2
 ARG CLI_ORG=muthur-command
 ARG CLI_REPO=cli
 ARG TARGETARCH
@@ -44,8 +44,8 @@ WORKDIR /
 
 LABEL \
     io.mcio.type="cli" \
-    org.opencontainers.image.title="MCOS CLI plugin" \
-    org.opencontainers.image.description="Supervisor-managed CLI plugin container for MCOS" \
+    org.opencontainers.image.title="Muthur Command OS CLI plugin" \
+    org.opencontainers.image.description="Supervisor-managed CLI plugin container for Muthur Command OS" \
     org.opencontainers.image.authors="muthur-command (fork; upstream copyright in LICENSE)" \
     org.opencontainers.image.url="https://github.com/muthur-command/plugin-cli" \
     org.opencontainers.image.documentation="https://github.com/muthur-command/plugin-cli" \
