@@ -43,7 +43,7 @@ COPY rootfs /
 WORKDIR /
 
 LABEL \
-    io.mcio.type="cli" \
+    io.mcos.type="cli" \
     org.opencontainers.image.title="Muthur Command OS CLI plugin" \
     org.opencontainers.image.description="Supervisor-managed CLI plugin container for Muthur Command OS" \
     org.opencontainers.image.authors="muthur-command (fork; upstream copyright in LICENSE)" \

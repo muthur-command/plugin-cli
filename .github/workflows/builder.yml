@@ -21,7 +21,7 @@ env:
   ARCHITECTURES: '["amd64", "aarch64"]'
   BUILD_NAME: cli
   BUILD_TYPE: plugin
-  IMAGE_NAME: mcio-cli
+  IMAGE_NAME: mcos-cli
 
 permissions:
   contents: read

@@ -2,7 +2,7 @@
 
 英文文档: [`README.md`](./README.md)
 
-由 Supervisor 管理的 **CLI** 插件容器，面向 **Muthur Command OS**（基于 **`ghcr.io/muthur-command/base`**；OCI 标签 **`io.mcio.*`**）。
+由 Supervisor 管理的 **CLI** 插件容器，面向 **Muthur Command OS**（基于 **`ghcr.io/muthur-command/base`**；OCI 标签 **`io.mcos.*`**）。
 
 镜像构建时会下载预编译的 **`mc`**。`Dockerfile` 默认从 **`muthur-command/cli`** 的 Release 拉取（与 **`CLI_VERSION`** 对应的 `mc_amd64` / `mc_aarch64` 资源名需与所选 Release 一致）。
 

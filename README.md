@@ -2,7 +2,7 @@
 
 中文文档: [`README.zh-CN.md`](./README.zh-CN.md)
 
-Supervisor-managed **CLI** add-on for **Muthur Command OS** (interactive `mc` shell on **`ghcr.io/muthur-command/base`**; OCI labels **`io.mcio.*`**).
+Supervisor-managed **CLI** add-on for **Muthur Command OS** (interactive `mc` shell on **`ghcr.io/muthur-command/base`**; OCI labels **`io.mcos.*`**).
 
 The `mc` binary is downloaded at image build time. The Dockerfile defaults to **`muthur-command/cli`** releases; CI may pass **`build-args`** to point at another org/repo until matching assets exist for the pinned **`CLI_VERSION`** (see **README.zh-CN.md**).
 
