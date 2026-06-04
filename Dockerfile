@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/muthur-command/base:3.23
+ARG BUILD_FROM=ghcr.io/muthur-command/base:3.23-2026.06.2
 FROM ${BUILD_FROM}
 
 # Set shell
